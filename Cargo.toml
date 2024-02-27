@@ -18,9 +18,9 @@ rustdoc-args = ["--cfg", "docsrs"]
 crossterm = { version = "0.27.0", default-features = false }
 main_error = "0.1.2"
 ratatui = "0.26.1"
-rayon = "1.8.1"
 reqwest = { version = "0.11.24", default-features = false, features = ["rustls-tls"] }
 serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
 tokio = { version = "1.36", features = ["rt-multi-thread", "macros"] }
 toml = { version = "0.8.10", default-features = false, features = ["display"] }
 url = { version = "2.5", features = ["serde"] }

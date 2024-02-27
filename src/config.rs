@@ -1,14 +1,24 @@
+use std::time::Duration;
+
 use serde::Deserialize;
 use url::Url;
 
-#[derive(Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 #[allow(unused)]
 pub struct Config {
-    endpoints: Vec<Endpoint>,
+    pub endpoints: Vec<Endpoint>,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 #[allow(unused)]
 pub struct Endpoint {
-    url: Url,
+    pub name: String,
+    pub url: Url,
+    pub follow_redirect: bool,
+    #[serde(default = "default_timeout")]
+    pub timeout: Duration,
+}
+
+fn default_timeout() -> Duration {
+    Duration::from_secs(10)
 }
