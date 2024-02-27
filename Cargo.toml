@@ -1,0 +1,20 @@
+[package]
+name = "allup"
+version = "0.0.0"
+license = "Unlicense"
+authors = ["Jonathan Cornaz"]
+edition = "2021"
+rust-version = "1.76"
+repository = "https://github.com/jcornaz/allup"
+description = "A CLI to check that all (configured) services are currently up"
+categories = []
+keywords = []
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+
+[dev-dependencies]
+
