@@ -1,3 +1,11 @@
 [[endpoints]]
 name = "Google"
 url = "https://google.com"
+
+[[endpoints]]
+name = "Github"
+url = "https://github.com"
+
+[[endpoints]]
+name = "Docs RS"
+url = "https://docs.rs"

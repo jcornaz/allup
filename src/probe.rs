@@ -5,6 +5,8 @@ use thiserror::Error;
 
 use crate::config::Endpoint;
 
+pub type Result = std::result::Result<Duration, Error>;
+
 #[derive(Debug, Error)]
 pub enum Error {
     #[error("timed out")]
@@ -18,7 +20,7 @@ pub enum Error {
     Network(reqwest::Error),
 }
 
-pub async fn probe(endpoint: &Endpoint) -> Result<Duration, Error> {
+pub async fn probe(endpoint: &Endpoint) -> Result {
     let req = Client::new()
         .get(endpoint.url.clone())
         .timeout(endpoint.timeout);

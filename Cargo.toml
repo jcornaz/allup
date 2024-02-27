@@ -15,6 +15,7 @@ all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
+anyhow = "1.0.80"
 clap = { version = "4.5.1", features = ["derive"] }
 crossterm = { version = "0.27.0", default-features = false }
 main_error = "0.1.2"
@@ -22,7 +23,7 @@ ratatui = "0.26.1"
 reqwest = { version = "0.11.24", default-features = false, features = ["rustls-tls"] }
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
-tokio = { version = "1.36", features = ["rt-multi-thread", "macros"] }
+tokio = { version = "1.36", features = ["rt-multi-thread", "macros", "time"] }
 toml = { version = "0.8.10", default-features = false, features = ["parse"] }
 url = { version = "2.5", features = ["serde"] }
 
