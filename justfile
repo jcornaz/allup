@@ -2,6 +2,7 @@ set dotenv-load
 
 # Perform all verifications (compile, test, lint, etc.)
 verify: test lint check-msrv
+	just run example.toml
 
 # Run the CLI
 run *args:

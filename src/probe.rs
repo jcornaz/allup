@@ -1,8 +1,6 @@
-#![allow(unused)]
-
 use std::time::{Duration, Instant};
 
-use reqwest::StatusCode;
+use reqwest::{Client, StatusCode};
 use thiserror::Error;
 
 use crate::config::Endpoint;
@@ -20,8 +18,10 @@ pub enum Error {
     Network(reqwest::Error),
 }
 
-pub async fn probe(client: &reqwest::Client, endpoint: &Endpoint) -> Result<Duration, Error> {
-    let req = client.get(endpoint.url.clone()).timeout(endpoint.timeout);
+pub async fn probe(endpoint: &Endpoint) -> Result<Duration, Error> {
+    let req = Client::new()
+        .get(endpoint.url.clone())
+        .timeout(endpoint.timeout);
 
     let started = Instant::now();
     let resp = req.send().await;
