@@ -1,5 +1,6 @@
 use std::{
-    fs, io,
+    fs,
+    io::{self},
     process::{self},
 };
 
@@ -9,11 +10,13 @@ use main_error::MainResult;
 use model::Config;
 
 use probe::probe;
+use render::render;
 use tokio::task::{self};
 
 mod cli;
 mod model;
 mod probe;
+mod render;
 
 #[tokio::main]
 async fn main() -> MainResult {
@@ -28,7 +31,11 @@ async fn main() -> MainResult {
     for probe in probes {
         results.push(probe.await?);
     }
-    serde_json::to_writer_pretty(io::stdout(), &results)?;
+    if opts.json {
+        serde_json::to_writer_pretty(io::stdout(), &results)?;
+    } else {
+        render(io::stdout(), &results)?;
+    }
     if results.iter().any(|r| r.error.is_some()) {
         process::exit(1);
     }

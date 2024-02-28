@@ -7,6 +7,9 @@ pub struct Opts {
     /// File containing the list of endpoints to probe
     #[clap(env = "ALLUP_FILE")]
     pub file: PathBuf,
+    /// Output the result as JSON
+    #[clap(short, long)]
+    pub json: bool,
 }
 
 #[cfg(test)]
