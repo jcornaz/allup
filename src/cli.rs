@@ -4,6 +4,8 @@ use std::path::PathBuf;
 #[derive(Debug, clap::Parser)]
 #[command(version, about)]
 pub struct Opts {
+    /// File containing the list of endpoints to probe
+    #[clap(env = "ALLUP_FILE")]
     pub file: PathBuf,
 }
 
