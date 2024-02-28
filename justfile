@@ -1,5 +1,7 @@
 set dotenv-load
 
+export RUST_BACKTRACE := "1"
+
 # Perform all verifications (compile, test, lint, etc.)
 verify: test lint check-msrv
 	just run example.toml
