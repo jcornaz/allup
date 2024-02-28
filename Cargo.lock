@@ -26,6 +26,7 @@ dependencies = [
  "main_error",
  "reqwest",
  "serde",
+ "serde_json",
  "thiserror",
  "tokio",
  "toml",

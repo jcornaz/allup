@@ -1,60 +1,41 @@
 use std::time::{Duration, Instant};
 
-use reqwest::{Client, Response, StatusCode};
-use thiserror::Error;
+use reqwest::Client;
 
-use crate::config::Endpoint;
-
-pub type Result = std::result::Result<Duration, Error>;
-
-#[derive(Debug, Error)]
-pub enum Error {
-    #[error("timed out")]
-    Timeout,
-    #[error("responded {status}")]
-    UnexpectedResponse {
-        status: StatusCode,
-        body: Option<String>,
-    },
-    #[error("network error: {0}")]
-    Network(reqwest::Error),
-}
+use crate::model::{Endpoint, Error, ProbeResult};
 
 impl From<reqwest::Error> for Error {
     fn from(err: reqwest::Error) -> Self {
         if err.is_timeout() {
             Error::Timeout
+        } else if err.is_redirect() {
+            Error::TooManyRedirects
+        } else if let Some(status) = err.status() {
+            Error::UnexpectedStatusCode(status.as_u16())
         } else {
-            Error::Network(err)
+            Error::Unreachable
         }
     }
 }
 
-pub async fn probe(endpoint: &Endpoint) -> Result {
-    let req = request(endpoint);
-    let (resp, duration) = send(req).await?;
-    ensure_success(resp).await?;
-    Ok(duration)
+pub async fn probe(endpoint: Endpoint) -> ProbeResult {
+    let req = request(&endpoint);
+    let start_time = Instant::now();
+    let resp = req.send().await;
+    let duration = start_time.elapsed().as_millis();
+    let error = resp
+        .and_then(|r| r.error_for_status())
+        .err()
+        .map(Error::from);
+    ProbeResult {
+        endpoint,
+        duration,
+        error,
+    }
 }
 
 fn request(endpoint: &Endpoint) -> reqwest::RequestBuilder {
     Client::new()
         .get(endpoint.url.clone())
-        .timeout(endpoint.timeout)
-}
-
-async fn send(req: reqwest::RequestBuilder) -> reqwest::Result<(reqwest::Response, Duration)> {
-    let started = Instant::now();
-    let resp = req.send().await?;
-    let duration = started.elapsed();
-    Ok((resp, duration))
-}
-
-async fn ensure_success(resp: Response) -> std::result::Result<(), Error> {
-    let status = resp.status();
-    if !status.is_success() {
-        let body = resp.text().await.ok();
-        return Err(Error::UnexpectedResponse { status, body });
-    }
-    Ok(())
+        .timeout(Duration::from_millis(endpoint.timeout.into()))
 }
