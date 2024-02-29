@@ -39,7 +39,7 @@ Rust docs: OK (580 ms)
 
 ## Installation
 
-`cargo install allup`
+`cargo install allup --locked`
 
 ## Maintenance status
 
