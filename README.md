@@ -6,7 +6,7 @@ A CLI to check that all (configured) services are currently up
 
 ## How does it work
 
-Write a tomle file listing all services you care about.
+Write a `toml` file listing all services you care about.
 
 Example: 
 
