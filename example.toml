@@ -7,5 +7,5 @@ name = "Github"
 url = "https://github.com"
 
 [[endpoints]]
-name = "Docs RS"
+name = "Rust docs"
 url = "https://docs.rs"
