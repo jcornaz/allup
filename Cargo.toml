@@ -7,8 +7,8 @@ edition = "2021"
 rust-version = "1.76"
 repository = "https://github.com/jcornaz/allup"
 description = "A CLI to check that all (configured) services are currently up"
-categories = []
-keywords = []
+categories = ["command-line-interface"]
+keywords = ["cli", "status", "check"]
 
 [package.metadata.docs.rs]
 all-features = true

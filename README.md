@@ -4,6 +4,43 @@
 
 A CLI to check that all (configured) services are currently up 
 
+## How does it work
+
+Write a tomle file listing all services you care about.
+
+Example: 
+
+```toml
+[[endpoints]]
+name = "Google"
+url = "https://google.com"
+
+[[endpoints]]
+name = "Github"
+url = "https://github.com"
+
+[[endpoints]]
+name = "Rust docs"
+url = "https://docs.rs"
+```
+
+`allup $FILE` will probe each url (concurrently) and print the status.
+It does not fail early if one URL fail (but it does return an error if there was any failure).
+
+The output may look something like this:
+
+```
+Google:    UNREACHABLE
+Github:    OK (175 ms)
+Rust docs: OK (580 ms)
+```
+
+> **Note** It is also possible to get the output as JSON.
+
+## Installation
+
+`cargo install allup`
+
 ## Maintenance status
 
 I made this project for my personal use. I'll be happy if it can be useful to anyone else, but there are a few things to keep in mind:
