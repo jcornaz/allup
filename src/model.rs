@@ -36,7 +36,7 @@ pub enum Error {
 }
 
 fn default_timeout() -> u32 {
-    10_000
+    5_000
 }
 
 #[cfg(test)]
