@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Misc.
+
+* Update dependencies
+  * patch for CVE-2024-45311
+
 
 ## [0.1.3] - 2024-09-01
 
