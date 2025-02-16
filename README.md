@@ -1,6 +1,8 @@
 # allup
 
-![rustc](https://img.shields.io/badge/rustc-1.76+-blue?logo=rust)
+[![License](https://img.shields.io/crates/l/allup)](#License)
+[![Crates.io](https://img.shields.io/crates/v/allup)](https://crates.io/crates/allup)
+![Maintenance](https://img.shields.io/maintenance/passively/2025)
 
 A CLI to check that all (configured) services are currently up 
 

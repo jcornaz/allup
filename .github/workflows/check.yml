@@ -20,19 +20,3 @@ jobs:
         with:
           tool: cargo-hack@0.6,just@1,cargo-msrv@0.17
       - run: just verify
-  lint:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      RUSTFLAGS: "-D warnings"
-      RUSTDOCFLAGS: "-D warnings"
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          components: clippy, rustfmt
-      - uses: Swatinem/rust-cache@v2
-      - uses: taiki-e/install-action@v2
-        with:
-          tool: cargo-hack,just
-      - run: just lint
