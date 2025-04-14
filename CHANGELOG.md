@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+* Add user agent to requests
+* Dependency updates
+
 
 ## [1.0.6] - 2025-03-18
 

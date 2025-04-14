@@ -1,6 +1,6 @@
 use std::time::{Duration, Instant};
 
-use reqwest::Client;
+use reqwest::{header, Client};
 
 use crate::model::{Endpoint, Error, ProbeResult};
 
@@ -34,8 +34,11 @@ pub async fn probe(endpoint: Endpoint) -> ProbeResult {
     }
 }
 
+const USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
+
 fn request(endpoint: &Endpoint) -> reqwest::RequestBuilder {
     Client::new()
         .get(endpoint.url.clone())
+        .header(header::USER_AGENT, USER_AGENT)
         .timeout(Duration::from_millis(endpoint.timeout.into()))
 }
