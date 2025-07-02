@@ -1,6 +1,6 @@
 use std::time::{Duration, Instant};
 
-use reqwest::{header, Client};
+use reqwest::{Client, header};
 
 use crate::model::{Endpoint, Error, ProbeResult};
 

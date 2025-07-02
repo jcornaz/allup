@@ -3,8 +3,8 @@ name = "allup"
 version = "1.0.7"
 license = "Unlicense"
 authors = ["Jonathan Cornaz"]
-edition = "2021"
-rust-version = "1.81"
+edition = "2024"
+rust-version = "1.85"
 repository = "https://github.com/jcornaz/allup"
 description = "A CLI to check that all (configured) services are currently up"
 categories = ["command-line-interface"]
@@ -17,7 +17,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 [dependencies]
 anyhow = "1"
 clap = { version = "4", features = ["derive", "env"] }
-colored = "2"
+colored = "3"
 main_error = "0.1"
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
 serde = { version = "1", features = ["derive"] }
