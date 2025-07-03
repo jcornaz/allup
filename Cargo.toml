@@ -29,3 +29,7 @@ url = { version = "2", features = ["serde"] }
 
 [dev-dependencies]
 
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
