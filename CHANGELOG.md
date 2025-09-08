@@ -7,11 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+* Dependency updates
+
 
 ## [1.0.9] - 2025-08-13
 
 * Dependencies
 * Optimize release profile
+
 
 ## [1.0.8] - 2025-07-02
 
