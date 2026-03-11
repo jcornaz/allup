@@ -1,0 +1,3 @@
+[tools]
+"cargo:cargo-hack" = "0.6.43"
+"cargo:cargo-msrv" = "0.19.1"
