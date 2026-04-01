@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/crates/l/allup)](#License)
 [![Crates.io](https://img.shields.io/crates/v/allup)](https://crates.io/crates/allup)
-![Maintenance](https://img.shields.io/maintenance/passively/2025)
+![Maintenance](https://img.shields.io/maintenance/as-is/2026)
 
 A CLI to check that all (configured) services are currently up 
 
