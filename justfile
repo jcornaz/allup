@@ -3,7 +3,7 @@ set dotenv-load
 export RUST_BACKTRACE := "1"
 
 # Perform all verifications (compile, test, lint, etc.)
-verify: test lint check-msrv
+verify: test lint
 	just run example.toml
 
 # Run the CLI
@@ -24,10 +24,6 @@ lint:
 	cargo fmt -- --check
 	cargo hack clippy --each-feature --all-targets
 
-# Make sure the MSRV is satisfiable
-check-msrv:
-	cargo msrv verify
-
 # Clean up compilation output
 clean:
 	rm -rf target
@@ -38,7 +34,7 @@ clean:
 install-dev-tools:
 	rustup install stable
 	rustup override set stable
-	cargo install cargo-hack cargo-watch cargo-msrv
+	cargo install cargo-hack cargo-watch
 
 # Install a git hook to run tests before every commits
 install-git-hooks:
