@@ -1,6 +1,6 @@
 [package]
 name = "allup"
-version = "1.0.14"
+version = "1.0.15"
 license = "Unlicense"
 authors = ["Jonathan Cornaz"]
 edition = "2024"
