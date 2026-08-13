@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+
+## [1.0.17] - 2026-08-13
+
 * Update vulnerable dependencies
 
 ## [1.0.16] - 2026-04-27
@@ -143,7 +146,8 @@ Dependency updates
 * Read file at `ALLUP_FILE` environment variable
 * `--json` flag to get output as JSON
 
-[Unreleased]: https://github.com/jcornaz/allup/compare/v1.0.16...HEAD
+[Unreleased]: https://github.com/jcornaz/allup/compare/v1.0.17...HEAD
+[1.0.17]: https://github.com/jcornaz/allup/compare/v1.0.16...v1.0.17
 [1.0.16]: https://github.com/jcornaz/allup/compare/v1.0.15...v1.0.16
 [1.0.15]: https://github.com/jcornaz/allup/compare/v1.0.14...v1.0.15
 [1.0.14]: https://github.com/jcornaz/allup/compare/v1.0.13...v1.0.14
