@@ -4,3 +4,6 @@
 
 # Nodes tools
 /node_modules
+
+# Nix
+/result
