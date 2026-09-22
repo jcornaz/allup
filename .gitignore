@@ -1,9 +1,10 @@
 # Rust
-/target
-/.cargo/*.toml
+target/
+.cargo/*.toml
 
 # Nodes tools
-/node_modules
+node_modules/
 
 # Nix
-/result
+result/
+.dirvenv/
